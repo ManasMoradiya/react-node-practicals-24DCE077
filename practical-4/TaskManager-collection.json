@@ -1,0 +1,65 @@
+{
+  "info": {
+    "_postman_id": "task-manager-api-collection",
+    "name": "Task Manager API",
+    "schema": "https://www.thunderclient.com/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000"
+    }
+  ],
+  "requests": [
+    {
+      "name": "List Tasks",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tasks",
+        "header": []
+      }
+    },
+    {
+      "name": "Create Task",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/tasks",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"title\": \"Sample task\"}"
+        }
+      }
+    },
+    {
+      "name": "Update Task",
+      "request": {
+        "method": "PUT",
+        "url": "{{baseUrl}}/tasks/:id",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"title\": \"Updated title\", \"completed\": true}"
+        }
+      }
+    },
+    {
+      "name": "Delete Task",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/tasks/:id",
+        "header": []
+      }
+    }
+  ]
+}
